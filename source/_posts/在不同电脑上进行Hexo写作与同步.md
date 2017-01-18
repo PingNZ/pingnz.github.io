@@ -38,7 +38,7 @@ git remote add origin https://github.com/pingnz/pingnz.github.io.git
 git add .
 git commit -m "提交描述" #如果主题是英文，这里就是 git commit 
 -m “change description”
-git push origin hexo
+git push origin hexo_blog
 
 ```
 下面来说说不同环境下的操作
@@ -58,7 +58,7 @@ git pull
 git add .
 git commit -m "提交描述" #如果主题是英文，这里就是 git commit 
 -m “change description”
-git push origin hexo
+git push origin hexo_blog
 
 ```
 推送上去.
@@ -81,7 +81,7 @@ npm install hexo-deployer-git –save
 git add .
 git commit -m "提交描述" #如果主题是英文，这里就是 git commit 
 -m “change description”
-git push origin hexo
+git push origin hexo_blog
 
 ```
 

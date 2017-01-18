@@ -1,0 +1,919 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="aria2," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="##背景介绍
+Aria2 是一个轻量的多协议多源命令行下载工具，支持 HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink 等协议下的下载。aria2 可通过内置的 JSON-RPC 及 XML-RPC interfaces 来进行操作，可通过 web 界面管理下载。
+12345aria2 is a lightweight multi-protocol &amp;a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用aria2下载">
+<meta property="og:url" content="http://yoursite.com/2017/01/19/如何使用aria2下载/index.html">
+<meta property="og:site_name" content="Ping_Blog">
+<meta property="og:description" content="##背景介绍
+Aria2 是一个轻量的多协议多源命令行下载工具，支持 HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink 等协议下的下载。aria2 可通过内置的 JSON-RPC 及 XML-RPC interfaces 来进行操作，可通过 web 界面管理下载。
+12345aria2 is a lightweight multi-protocol &amp;a">
+<meta property="og:image" content="http://zxjsdp1.qiniudn.com/Aria2GUI_screenshot.png">
+<meta property="og:updated_time" content="2017-01-18T23:01:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何使用aria2下载">
+<meta name="twitter:description" content="##背景介绍
+Aria2 是一个轻量的多协议多源命令行下载工具，支持 HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink 等协议下的下载。aria2 可通过内置的 JSON-RPC 及 XML-RPC interfaces 来进行操作，可通过 web 界面管理下载。
+12345aria2 is a lightweight multi-protocol &amp;a">
+<meta name="twitter:image" content="http://zxjsdp1.qiniudn.com/Aria2GUI_screenshot.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms","path":"search.xml","field":"post"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/19/如何使用aria2下载/"/>
+
+
+
+
+
+  <title> 如何使用aria2下载 | Ping_Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ping_Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/19/如何使用aria2下载/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="PING">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ping_Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ping_Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何使用aria2下载
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-19T11:20:15+13:00">
+                2017-01-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-19T12:01:06+13:00">
+                2017-01-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IT相关/" itemprop="url" rel="index">
+                    <span itemprop="name">IT相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##背景介绍</p>
+<p>Aria2 是一个轻量的多协议多源命令行下载工具，支持 HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink 等协议下的下载。aria2 可通过内置的 JSON-RPC 及 XML-RPC interfaces 来进行操作，可通过 web 界面管理下载。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">aria2 is a lightweight multi-protocol &amp; multi-source </div><div class="line"><span class="built_in">command</span>-line download utility. It supports HTTP/HTTPS, </div><div class="line">FTP, SFTP, BitTorrent and Metalink. aria2 can be </div><div class="line">manipulated via built-in JSON-RPC and XML-RPC </div><div class="line">interfaces.</div></pre></td></tr></table></figure>
+<p>Aria2 项目官网为 <a href="https://aria2.github.io/。aria2" target="_blank" rel="external">https://aria2.github.io/。aria2</a> 早期是维护在 sourceforge 上的，但目前已转移至 GitHub：<a href="https://github.com/aria2/aria2，sourceforge" target="_blank" rel="external">https://github.com/aria2/aria2，sourceforge</a> 上提供的下载链接留在较老的版本上。</p>
+<p>下载最新版的 aria2 请访问 aria2 GitHub 的 release 页面：<a href="https://github.com/aria2/aria2/releases。" target="_blank" rel="external">https://github.com/aria2/aria2/releases。</a></p>
+<p>##命令行模式及配置文件</p>
+<p>Aria2 有两种下载模式，一种是命令行下载模式，一种是 RPC Server 模式。建议使用 RPC Server 模式，同时配合 webui 来管理和使用。<br>更详细的配置选项等可以参考官方 Aria2 Manual。</p>
+<p>###配置文件<br>建议使用配置文件的方式管理配置（可以添加 -D 选项以后台运行）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">aria2c --conf-path=aria2.conf</div></pre></td></tr></table></figure>
+<p>###命令行模式</p>
+<p>我们可以在命令行中非常简单地调用 aria2 进行多种协议的下载操作。例如：<br>下载网络文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ aria2c http://example.org/mylinux.iso</div></pre></td></tr></table></figure>
+<p>下载多个文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ aria2c http://a/f.iso ftp://b/f.iso</div></pre></td></tr></table></figure>
+<p>下载时每个host使用两个连接：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ aria2c -x2 http://a/f.iso</div></pre></td></tr></table></figure>
+<p>使用 BitTorrent 协议下载：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ aria2c http://example.org/mylinux.torrent</div></pre></td></tr></table></figure>
+<p>使用磁力链接（Magnet URI）进行下载：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ aria2c <span class="string">'magnet:?xt=urn:btih:248D0A1CD08284299DE78D5C1ED359BB46717D8C'</span></div></pre></td></tr></table></figure>
+<p>Metalink：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ aria2c http://example.org/mylinux.metalink</div></pre></td></tr></table></figure>
+<p>下载 text 文本文件中的链接：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ aria2c -i uris.txt</div></pre></td></tr></table></figure>
+<p>##Windows 下 aria2 的使用方式<br>下载 aria2</p>
+<p>访问 aria2 的 GitHub release 页面，下拉找到 latest release 的 Downloads 部分，下载 64 位或 32 位的 zip 包：</p>
+<p>![] (<a href="http://zxjsdp1.qiniudn.com/aria2_github_latest_release.png" target="_blank" rel="external">http://zxjsdp1.qiniudn.com/aria2_github_latest_release.png</a>)</p>
+<p>###配置 aria2</p>
+<p>将 zip 包内的文件解压至本地目录，如 C:\Apps\aria2\，并在此目录下新建 4 个纯文本文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">aria2.log         （日志，空文件就行）</div><div class="line">aria2.session     （下载历史，空文件就行）</div><div class="line">aria2.conf        （配置文件）</div><div class="line">HideRunAria2.vbs  （隐藏cmd窗口运行用到的）</div></pre></td></tr></table></figure>
+<ol>
+<li>aria2.log<br>此文件为 aria2 运行的日志文件。</li>
+<li>aria2.session<br>此文件用于记录和读取下载历史，保证在断电和重启时下载任务不会丢失。如果有时aria2不能启动，可以尝试清空此文件中的内容。</li>
+<li>aria2.conf<br>此文件为 aria2 的配置文件。</li>
+</ol>
+<p>配置文件中，需要根据当前存放 aria2 的目录的路径，修改若干选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载文件保存路径</span></div><div class="line">dir=D:\Downloads\aria2\</div><div class="line"></div><div class="line"><span class="comment"># 日志文件，如果不需要日志，这一行可去掉，如果需要，路径D:\Program Files\aria2\改为你安装aria2的路径</span></div><div class="line"><span class="built_in">log</span>=C:\Apps\aria2\aria2.log</div><div class="line"></div><div class="line"><span class="comment"># 这两个是记录和读取下载历史用的，断电和重启时保证下载任务不会丢失</span></div><div class="line"><span class="comment"># 如果有时aria2不能启动，清空这里面的内容就行了，路径D:\Program Files\aria2\改为你安装aria2的路径</span></div><div class="line">input-file=C:\Apps\aria2\aria2.session</div><div class="line">save-session=C:\Apps\aria2\aria2.session</div></pre></td></tr></table></figure>
+<p>若没有定制需要，其他选项可使用如下实例配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">dir=D:\Downloads\aria2\</div><div class="line"><span class="built_in">log</span>=C:\Apps\aria2\aria2.log</div><div class="line">input-file=C:\Apps\aria2\aria2.session</div><div class="line">save-session=C:\Apps\aria2\aria2.session</div><div class="line"></div><div class="line">save-session-interval=60</div><div class="line">force-save=<span class="literal">true</span></div><div class="line"><span class="built_in">log</span>-level=error</div><div class="line"></div><div class="line"><span class="comment"># see --split option</span></div><div class="line">max-concurrent-downloads=5</div><div class="line"><span class="built_in">continue</span>=<span class="literal">true</span></div><div class="line">max-overall-download-limit=0</div><div class="line">max-overall-upload-limit=50K</div><div class="line">max-upload-limit=20</div><div class="line"></div><div class="line"><span class="comment"># Http/FTP options</span></div><div class="line">connect-timeout=120</div><div class="line">lowest-speed-limit=10K</div><div class="line">max-connection-per-server=10</div><div class="line">max-file-not-found=2</div><div class="line">min-split-size=1M</div><div class="line">split=5</div><div class="line">check-certificate=<span class="literal">false</span></div><div class="line">http-no-cache=<span class="literal">true</span></div><div class="line"></div><div class="line"><span class="comment"># FTP Specific Options</span></div><div class="line"></div><div class="line"><span class="comment"># BT/PT Setting</span></div><div class="line">bt-enable-lpd=<span class="literal">true</span></div><div class="line"><span class="comment">#bt-max-peers=55</span></div><div class="line">follow-torrent=<span class="literal">true</span></div><div class="line"><span class="built_in">enable</span>-dht6=<span class="literal">false</span></div><div class="line">bt-seed-unverified</div><div class="line">rpc-save-upload-metadata=<span class="literal">true</span></div><div class="line">bt-hash-check-seed</div><div class="line">bt-remove-unselected-file</div><div class="line">bt-request-peer-speed-limit=100K</div><div class="line">seed-ratio=0.0</div><div class="line"></div><div class="line"><span class="comment"># Metalink Specific Options</span></div><div class="line"></div><div class="line"><span class="comment"># RPC Options</span></div><div class="line"><span class="built_in">enable</span>-rpc=<span class="literal">true</span></div><div class="line">pause=<span class="literal">false</span></div><div class="line">rpc-allow-origin-all=<span class="literal">true</span></div><div class="line">rpc-listen-all=<span class="literal">true</span></div><div class="line">rpc-save-upload-metadata=<span class="literal">true</span></div><div class="line">rpc-secure=<span class="literal">false</span></div><div class="line"></div><div class="line"><span class="comment"># Advanced Options</span></div><div class="line">daemon=<span class="literal">true</span></div><div class="line"><span class="built_in">disable</span>-ipv6=<span class="literal">true</span></div><div class="line"><span class="built_in">enable</span>-mmap=<span class="literal">true</span></div><div class="line">file-allocation=falloc</div><div class="line">max-download-result=120</div><div class="line"><span class="comment">#no-file-allocation-limit=32M</span></div><div class="line">force-sequential=<span class="literal">true</span></div><div class="line">parameterized-uri=<span class="literal">true</span></div></pre></td></tr></table></figure>
+<p>若需要指定其他选项，例如 <code>rpc-user</code> 及 <code>rpc-passwd</code> 等，可参考其他的配置文件，例如：<a href="https://blog.icehoney.me/posts/2015-01-31-Aria2-download" target="_blank" rel="external">使用Aria2下载百度网盘和115的资源。</a></p>
+<p>4.HideRunAria2.vbs</p>
+<p>此 vbs 脚本用于无 cmd 窗口运行 aria2c。可点击此文件直接后台启动 aria2 并加载配置，无需每次输入<br><code>aria2 --conf-path=aria2.conf</code>。</p>
+<p>使用文本编辑器打开此文件，编辑内容如下：</p>
+<p><code>CreateObject(&quot;WScript.Shell&quot;).Run &quot;C:\Apps\aria2\aria2c.exe --conf-path=aria2.conf&quot;,0</code></p>
+<p>其中，<code>C:\Apps\aria2\aria2c.exe</code> 应替换为你的 <code>aria2c.exe</code> 绝对路径。</p>
+<p>若需要开机启动，可将 <code>HideRunAria2.vbs</code> 的快捷方式放置于：<code>C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</code>。</p>
+<p>###使用 webui 下载管理界面管理下载的内容<br>我们可以使用 webui-aria2 来通过 RPC 方式管理下载内容。 <a href="https://github.com/ziahamza/webui-aria2" target="_blank" rel="external">webui-aria2</a> 项目主页为：<a href="https://github.com/ziahamza/webui-aria2。" target="_blank" rel="external">https://github.com/ziahamza/webui-aria2。</a></p>
+<p>在 Windows 下有两种使用方式：</p>
+<ul>
+<li><p>访问 <a href="http://ziahamza.github.io/webui-aria2/。若本地已成功运行" target="_blank" rel="external">http://ziahamza.github.io/webui-aria2/。若本地已成功运行</a> aria2，则可以直接使用。</p>
+</li>
+<li><p>访问 <a href="http://ziahamza.github.io/webui-aria2/" target="_blank" rel="external">webui-aria2 项目 GitHub 页面</a>，clone 至本地，使用浏览器打开 index.html。</p>
+</li>
+</ul>
+<p>###如何使用 aria2 下载百度云链接</p>
+<p>推荐使用 <a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">BaiduExporter</a> ，可将百度网盘的下载地址导出到 aria2/aria2-rpc，支持 YAAW。BaiduExporter 支持：</p>
+<ul>
+<li>Chrome（<a href="https://chrome.google.com/webstore/detail/baiduexporter/mjaenbjdjmgolhoafkohbhhbaiedbkno" target="_blank" rel="external">BaiduExporter for Chrome</a>）</li>
+<li>Firefox（<a href="https://addons.mozilla.org/zh-CN/firefox/addon/baiduexporter" target="_blank" rel="external">BaiduExporter@Addons page</a>, <a href="https://raw.githubusercontent.com/acgotaku/BaiduExporter/master/firefox/BaiduExporter.xpi" target="_blank" rel="external">BaiduExporter.xpi 文件</a>）</li>
+<li>Safari（<a href="https://raw.githubusercontent.com/acgotaku/BaiduExporter/master/safari/BaiduExporter.safariextz" target="_blank" rel="external">BaiduExporter forSafari</a>）</li>
+</ul>
+<p>###下载迅雷离线等内容</p>
+<p>可以尝试在 <a href="https://greasyfork.org/" target="_blank" rel="external">Greasy Fork</a> 及 <a href="https://gist.github.com/" target="_blank" rel="external">Gist</a> 等处寻找其他 yaaw 下载的脚本。例如：<a href="https://greasyfork.org/zh-CN/scripts/5376-thunderlixianexporter" target="_blank" rel="external">ThunderLixianExporter</a> 等。</p>
+<p>##Mac OS X 下 aria2 的使用方式</p>
+<p>###使用 Aria2GUI<br>在 Mac OS X 下，有一个非常不错的 Aria2 用户界面项目 <a href="https://github.com/yangshun1029/aria2gui" target="_blank" rel="external">Aria2GUI</a>，GitHub 链接为：<a href="https://github.com/yangshun1029/aria2gui。Aria2GUI" target="_blank" rel="external">https://github.com/yangshun1029/aria2gui。Aria2GUI</a> 自身集成了 aria2，在下载 dmg 文件并安装后，即可使用，无需进行其他繁琐的配置。并且支持多线程。</p>
+<p>Aria2GUI 的最新 release 版本请到 GitHub 的 release 页面下载：<a href="https://github.com/yangshun1029/aria2gui/releases。" target="_blank" rel="external">https://github.com/yangshun1029/aria2gui/releases。</a><br><img src="http://zxjsdp1.qiniudn.com/Aria2GUI_screenshot.png" alt=""></p>
+<p>###YAAW-for-Chrome 插件</p>
+<p>使用 <a href="https://github.com/acgotaku/YAAW-for-Chrome" target="_blank" rel="external">YAAW-for-Chrome</a> 插件，可以接管 Chrome 浏览器的下载到 Aria2GUI。YAAW-for-Chrome 的 GitHub 链接为：<a href="https://github.com/acgotaku/YAAW-for-Chrome，Chrome" target="_blank" rel="external">https://github.com/acgotaku/YAAW-for-Chrome，Chrome</a> store 的安装链接为：<a href="https://chrome.google.com/webstore/detail/yaaw-for-chrome/dennnbdlpgjgbcjfgaohdahloollfgoc。" target="_blank" rel="external">https://chrome.google.com/webstore/detail/yaaw-for-chrome/dennnbdlpgjgbcjfgaohdahloollfgoc。</a></p>
+<p>###导出百度网盘的资源<br>在 Mac OS X 下，下载百度云上的资源体验较差，没有类似 Windows 上百度云管家类似的原生客户端，使用浏览器下载速度非常慢。因此可以安装 <a href="https://github.com/acgotaku/BaiduExporter" target="_blank" rel="external">BaiduExporter</a>，在百度云的下载页面上，将下载链接导出到 Aria2GUI 中下载，将能够得到接近带宽极限的满速体验。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/aria2/" rel="tag"># aria2</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/17/在不同电脑上进行Hexo写作与同步/" rel="next" title="在不同电脑上进行Hexo写作与同步">
+                <i class="fa fa-chevron-left"></i> 在不同电脑上进行Hexo写作与同步
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="PING" />
+          <p class="site-author-name" itemprop="name">PING</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/pingnz" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/askping" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/u/2022693731" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PING</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
