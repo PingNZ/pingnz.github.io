@@ -5,7 +5,8 @@ tags: aria2
 categories: IT相关
 
 ---
-##背景介绍
+
+# 背景介绍
 
 Aria2 是一个轻量的多协议多源命令行下载工具，支持 HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink 等协议下的下载。aria2 可通过内置的 JSON-RPC 及 XML-RPC interfaces 来进行操作，可通过 web 界面管理下载。
 
@@ -22,19 +23,19 @@ Aria2 项目官网为 https://aria2.github.io/。aria2 早期是维护在 source
 
 下载最新版的 aria2 请访问 aria2 GitHub 的 release 页面：https://github.com/aria2/aria2/releases。
 
-##命令行模式及配置文件
+# 命令行模式及配置文件
 
 Aria2 有两种下载模式，一种是命令行下载模式，一种是 RPC Server 模式。建议使用 RPC Server 模式，同时配合 webui 来管理和使用。
 更详细的配置选项等可以参考官方 Aria2 Manual。
 
-###配置文件
+## 配置文件
 建议使用配置文件的方式管理配置（可以添加 -D 选项以后台运行）：
 
 ```bash
 aria2c --conf-path=aria2.conf
 ```
 
-###命令行模式
+## 命令行模式
 
 我们可以在命令行中非常简单地调用 aria2 进行多种协议的下载操作。例如：
 下载网络文件：
@@ -79,14 +80,14 @@ $ aria2c http://example.org/mylinux.metalink
 $ aria2c -i uris.txt
 ```
 
-##Windows 下 aria2 的使用方式
+# Windows 下 aria2 的使用方式
 下载 aria2
 
 访问 aria2 的 GitHub release 页面，下拉找到 latest release 的 Downloads 部分，下载 64 位或 32 位的 zip 包：
 
 ![] (http://zxjsdp1.qiniudn.com/aria2_github_latest_release.png)
 
-###配置 aria2
+## 配置 aria2
 
 将 zip 包内的文件解压至本地目录，如 C:\Apps\aria2\，并在此目录下新建 4 个纯文本文件：
 
@@ -197,7 +198,7 @@ parameterized-uri=true
 
 若需要开机启动，可将 `HideRunAria2.vbs` 的快捷方式放置于：`C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup`。
 
-###使用 webui 下载管理界面管理下载的内容
+## 使用 webui 下载管理界面管理下载的内容
 我们可以使用 webui-aria2 来通过 RPC 方式管理下载内容。 [webui-aria2](https://github.com/ziahamza/webui-aria2) 项目主页为：https://github.com/ziahamza/webui-aria2。
 
 在 Windows 下有两种使用方式：
@@ -206,7 +207,7 @@ parameterized-uri=true
 
 * 访问 [webui-aria2 项目 GitHub 页面](http://ziahamza.github.io/webui-aria2/)，clone 至本地，使用浏览器打开 index.html。
 
-###如何使用 aria2 下载百度云链接
+## 如何使用 aria2 下载百度云链接
 
 推荐使用 [BaiduExporter](https://github.com/acgotaku/BaiduExporter) ，可将百度网盘的下载地址导出到 aria2/aria2-rpc，支持 YAAW。BaiduExporter 支持：
 
@@ -214,21 +215,23 @@ parameterized-uri=true
 * Firefox（[BaiduExporter@Addons page](https://addons.mozilla.org/zh-CN/firefox/addon/baiduexporter), [BaiduExporter.xpi 文件](https://raw.githubusercontent.com/acgotaku/BaiduExporter/master/firefox/BaiduExporter.xpi)）
 * Safari（[BaiduExporter forSafari](https://raw.githubusercontent.com/acgotaku/BaiduExporter/master/safari/BaiduExporter.safariextz)）
 
-###下载迅雷离线等内容
+## 下载迅雷离线等内容
 
 可以尝试在 [Greasy Fork](https://greasyfork.org/) 及 [Gist](https://gist.github.com/) 等处寻找其他 yaaw 下载的脚本。例如：[ThunderLixianExporter](https://greasyfork.org/zh-CN/scripts/5376-thunderlixianexporter) 等。
 
-##Mac OS X 下 aria2 的使用方式
+# Mac OS X 下 aria2 的使用方式
 
-###使用 Aria2GUI
+## 使用 Aria2GUI
+
 在 Mac OS X 下，有一个非常不错的 Aria2 用户界面项目 [Aria2GUI](https://github.com/yangshun1029/aria2gui)，GitHub 链接为：https://github.com/yangshun1029/aria2gui。Aria2GUI 自身集成了 aria2，在下载 dmg 文件并安装后，即可使用，无需进行其他繁琐的配置。并且支持多线程。
 
 Aria2GUI 的最新 release 版本请到 GitHub 的 release 页面下载：https://github.com/yangshun1029/aria2gui/releases。
 ![](http://zxjsdp1.qiniudn.com/Aria2GUI_screenshot.png)
 
-###YAAW-for-Chrome 插件
+## YAAW-for-Chrome 插件
 
 使用 [YAAW-for-Chrome](https://github.com/acgotaku/YAAW-for-Chrome) 插件，可以接管 Chrome 浏览器的下载到 Aria2GUI。YAAW-for-Chrome 的 GitHub 链接为：https://github.com/acgotaku/YAAW-for-Chrome，Chrome store 的安装链接为：https://chrome.google.com/webstore/detail/yaaw-for-chrome/dennnbdlpgjgbcjfgaohdahloollfgoc。
 
-###导出百度网盘的资源
+## 导出百度网盘的资源
+
 在 Mac OS X 下，下载百度云上的资源体验较差，没有类似 Windows 上百度云管家类似的原生客户端，使用浏览器下载速度非常慢。因此可以安装 [BaiduExporter](https://github.com/acgotaku/BaiduExporter)，在百度云的下载页面上，将下载链接导出到 Aria2GUI 中下载，将能够得到接近带宽极限的满速体验。
