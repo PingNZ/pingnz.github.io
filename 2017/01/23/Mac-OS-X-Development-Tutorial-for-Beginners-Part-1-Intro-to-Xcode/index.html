@@ -1,0 +1,1006 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Swift," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Want to learn how to develop your own apps for Mac OS X?
+Good news – Apple makes developing for OS X incredibly easy – and in this tutorial series we’ll show you how. You’ll learn how to create your f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac OS X Development Tutorial for Beginners Part 1: Intro to Xcode">
+<meta property="og:url" content="http://yoursite.com/2017/01/23/Mac-OS-X-Development-Tutorial-for-Beginners-Part-1-Intro-to-Xcode/index.html">
+<meta property="og:site_name" content="Ping_Blog">
+<meta property="og:description" content="Want to learn how to develop your own apps for Mac OS X?
+Good news – Apple makes developing for OS X incredibly easy – and in this tutorial series we’ll show you how. You’ll learn how to create your f">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/08/AppStore21.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/xcode_mas-679x500.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/xocde_welcome-480x289.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/08/XcodeBeta.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/08/2Xcode.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/open_finder-480x269.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/xocde_welcome-480x289.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/new_project-451x320.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/new_project1-450x320.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/play_button1-480x124.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/bar_empty-480x292.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/open_storyboard-294x320.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/hello_world_storyboard-343x500.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/object_library-330x320.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label-480x312.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/label_config-296x320.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/constraints-413x320.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/hello_osx-480x293.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/hubevent-613x500.png">
+<meta property="og:image" content="https://koenig-media.raywenderlich.com/uploads/2015/07/source_editor-700x368.png">
+<meta property="og:updated_time" content="2017-01-24T08:59:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac OS X Development Tutorial for Beginners Part 1: Intro to Xcode">
+<meta name="twitter:description" content="Want to learn how to develop your own apps for Mac OS X?
+Good news – Apple makes developing for OS X incredibly easy – and in this tutorial series we’ll show you how. You’ll learn how to create your f">
+<meta name="twitter:image" content="https://koenig-media.raywenderlich.com/uploads/2015/08/AppStore21.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms","path":"search.xml","field":"post"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/23/Mac-OS-X-Development-Tutorial-for-Beginners-Part-1-Intro-to-Xcode/"/>
+
+
+
+
+
+  <title> Mac OS X Development Tutorial for Beginners Part 1: Intro to Xcode | Ping_Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ping_Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/23/Mac-OS-X-Development-Tutorial-for-Beginners-Part-1-Intro-to-Xcode/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="PING">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ping_Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ping_Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Mac OS X Development Tutorial for Beginners Part 1: Intro to Xcode
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-23T12:30:20+13:00">
+                2017-01-23
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-01-24T21:59:24+13:00">
+                2017-01-24
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IT相关/" itemprop="url" rel="index">
+                    <span itemprop="name">IT相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Want to learn how to develop your own apps for Mac OS X?</p>
+<p>Good news – Apple makes developing for OS X incredibly easy – and in this tutorial series we’ll show you how. You’ll learn how to create your first app for OS X – even if you’re a complete beginner.</p>
+<ol>
+<li>In this first part you’ll first learn about how to obtain the tools you need to develop for OS X. Then, using an app you’ve downloaded as an example, you’ll take a tour of Xcode, discovering how to run an app, edit code, design the UI and debug it.</li>
+<li>In part two, you’ll take a step back from Xcode to learn about the components that make up an OS X app. From how an app starts, through how the UI is constructed all the way to handling user interaction.</li>
+<li>You’ll get your hands dirty in the final part – building your first ever OS X app. Starting from nothing, you’ll soon have a simple app up and running on your mac!</li>
+</ol>
+<p>So what are you waiting for? The world of desktop apps awaits!</p>
+<blockquote>
+<p>Note: Here’s some guidance of where to begin with this series:</p>
+<ul>
+<li><strong>If you are new to Swift,</strong> this series assumes Swift knowledge, so first check out our <a href="http://www.raywenderlich.com/category/swift" target="_blank" rel="external">Swift tutorials</a> to get a great introduction.</li>
+<li><strong>If you already have iOS experience,</strong> this first part of the series will be review. Take a quick look through the topics to make sure and then skip straight ahead to the <a href="http://www.raywenderlich.com/110267/mac-os-x-development-tutorial-for-beginners-part-2-os-x-app-anatomy" target="_blank" rel="external">next part of the series</a>.</li>
+<li><strong>Otherwise,</strong> keep reading – this series is for complete beginners – no experience of developing for iOS or OS X is required!</li>
+</ul>
+</blockquote>
+<h1 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h1><p>To become an OS X developer, you will need a few things:</p>
+<ul>
+<li><strong>Mac running OS X.</strong> The OS X operating system only runs on Apple computers, so you need a Mac both to develop and run OS X apps. If you’re wondering which Mac to buy, we recommend a Mac Mini with extra memory and a solid state or Fusion drive; it’s the best balance between cost and power.</li>
+<li><strong>An AppleID.</strong> In order to download the tools from the App Store, you’ll need an AppleID.</li>
+<li><strong>Xcode.</strong> This is the IDE and toolchain used to create OS X apps. You’ll learn how to install this in the next section.</li>
+</ul>
+<p>Once you’ve built your app, and you want to upload it to the App Store to be distributed, you’ll also need to pay for an Apple developer account. But this is not a requirement until you are ready to send your app out to the world.</p>
+<h1 id="Obtaining-Tools"><a href="#Obtaining-Tools" class="headerlink" title="Obtaining Tools"></a>Obtaining Tools</h1><p>Unlike some other platforms, developing for OS X requires the installation of one tool – known as Xcode. Xcode is an IDE that includes everything you need to develop iOS, watchOS and OS X apps.</p>
+<p>If you don’t have Xcode already, click on the Apple icon in the upper left of your menu and select App Store to open the Mac App Store.</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/08/AppStore21.png" alt=""></p>
+<p>Search for Xcode and download it:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/xcode_mas-679x500.png" alt=""></p>
+<p>Once it has downloaded and installed, open Xcode from your Applications folder. The first time you open Xcode it’ll ask to install some additional components. Go ahead and let it, entering your password if required.</p>
+<p>You’ll then be presented with the Xcode welcome screen:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/xocde_welcome-480x289.png" alt=""></p>
+<p>Congratulations, you’ve successfully installed Xcode! Read on to learn all about what it can do.</p>
+<h2 id="Beta-versions-of-Xcode"><a href="#Beta-versions-of-Xcode" class="headerlink" title="Beta versions of Xcode"></a>Beta versions of Xcode</h2><p>Before moving on to describing the power of Xcode, it’s worth taking a few minutes learning about beta versions of Xcode.</p>
+<p>When Apple releases new updates to Xcode (often to support new features in OS X, iOS and watchOS) they go through an agressive cycle of beta releases. These releases include the new features, but consequently many bugs. If you are interested in developing an app which leverages these new features, you’ll need to download the latest beta from Apple.</p>
+<p>This tutorial requires Xcode 7, since the sample project used in this tutorial has been updated to the Swift 2.0 programming language. There are two cases:</p>
+<ul>
+<li><strong>If the App Store version of Xcode is Xcode 7 at the time of reading this tutorial,</strong> you are all set!</li>
+<li><strong>If the App Store version of Xcode is Xcode 6 at the time of reading this tutorial,</strong> you’ll need to install a beta version of Xcode 7 – keep reading to learn how.</li>
+</ul>
+<p>To get the latest beta version of Xcode, visit <a href="https://developer.apple.com/" target="_blank" rel="external">developer.apple.com</a>, click on <strong>Resources, Xcode,</strong> and then Download. Follow the link to <strong>download</strong> the latest version of Xcode beta there.<br>Note you can install a beta version of Xcode alongside the stable version, so there’s no problem with continuing work on projects that aren’t ready for upgrade.</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/08/XcodeBeta.png" alt=""></p>
+<p>The download is a DMG, so you can install by dragging the Xcode app across into <strong>Applications</strong> in the usual way. You’ll then have two versions of Xcode in your applications folder:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/08/2Xcode.png" alt=""></p>
+<p>Run <strong>Xcode-beta</strong> and then you’re ready to continue on!</p>
+<p><strong>Hello World!</strong></p>
+<p>Xcode is an Integrated Development Environment (IDE) which means that it is a collection of all the tools you need, from source code editing, compilation through to debugging and UI design.</p>
+<p>When you open Xcode it allows you to create a new project, or open an existing one. You can also open an existing project by double clicking on an Xcode project or workspace in Finder:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/open_finder-480x269.png" alt=""></p>
+<h2 id="Creating-a-new-app"><a href="#Creating-a-new-app" class="headerlink" title="Creating a new app"></a>Creating a new app</h2><p>For most of this tutorial you’ll tour Xcode via a sample app, but first things first – you can’t start learning about a new platform without first creating a “Hello World” app!</p>
+<p>To do this, select <strong>Create a new Xcode project</strong> from the Xcode welcome screen:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/xocde_welcome-480x289.png" alt=""></p>
+<p>The template chooser allows you to decide how Xcode will configure your new project. In the O<strong>S X \ Application</strong> section you can see the three different core OS X app types:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/new_project-451x320.png" alt=""></p>
+<p>The three different app types are as follows:</p>
+<ul>
+<li><strong>Cocoa Application:</strong> An OS X desktop app – with a window-based UI. Cocoa is the name of the framework upon which all OS X applications are built.</li>
+<li><strong>Game:</strong> Games built using Apple’s SpriteKit or SceneKit frameworks.</li>
+<li><strong>Command Line Tool:</strong> A utility that runs in a shell, and has a text-based UI.</li>
+</ul>
+<p>Select <strong>Cocoa Application,</strong> and click <strong>Next</strong>. On the screen that follows, set the <strong>Product Name </strong>to <strong>HelloWorld</strong>, check the language is set to <strong>Swift</strong> and that <strong>Use Storyboards </strong>is checked:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/new_project1-450x320.png" alt=""></p>
+<p>Click <strong>Next</strong>, and choose a location on disk to save your project.</p>
+<p>This creates a new, empty project ready for you to craft into your amazing app. The first thing you’ll want to do is build and run it to check that it’s all working.</p>
+<h2 id="Running-your-app"><a href="#Running-your-app" class="headerlink" title="Running your app"></a>Running your app</h2><p>Whether you’ve opened an existing app or created a new one, the most important thing you’ll want to do is to build and run it.</p>
+<p>This involves compiling all of the code you’ve written into machine code, bundling up the resources required by the app and then executing it. This process is complex, but luckily Xcode has your back. To build and run your project simply press the <strong>play</strong> button on the toolbar:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/play_button1-480x124.png" alt=""></p>
+<p>You can also build and run your app with the <strong>⌘R</strong> keyboard shortcut.</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/bar_empty-480x292.png" alt=""></p>
+<blockquote>
+<p><strong>Note</strong>: The first time you ever build and run an app in Xcode, you might well be asked whether you want to <strong>Enable Developer Mode on this Mac?.</strong> You’re safe to select <strong>Enable</strong>, at which point you may have to enter your password. Developer mode allows Xcode to attach a debugger to running processes – which will be extremely useful when building your application!</p>
+</blockquote>
+<p>Your <strong>HelloWorld</strong> app is currently looking a bit empty – and doesn’t even say hello! You’re going to fix that now.</p>
+<h2 id="Adding-Text"><a href="#Adding-Text" class="headerlink" title="Adding Text"></a>Adding Text</h2><p>You’re going to update the user interface (UI) of your app to make it into a true “Hello World” app, and to do this you’re going to use a tool called Interface Builder (IB). You’ll learn much more about Interface Builder later in this tutorial – for now, you just need to know enough to add some text to the layout.</p>
+<p>Find the <strong>Main.storyboard</strong> file in the <strong>Project Navigator,</strong> and click on it:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/open_storyboard-294x320.png" alt=""></p>
+<p>This opens the storyboard file in Interface Builder – you can see an outline of your entire app:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/hello_world_storyboard-343x500.png" alt=""></p>
+<p>The lower component (entitled “View Controller”) represents the visual appearance of your app. You’re going to add a text label to this to create your “Hello World” app.</p>
+<p>Find the <strong>Object Library</strong> in the lower right part of the Xcode window. Type <strong>label</strong> into the search box and locate the <strong>Label</strong> entry:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/object_library-330x320.png" alt=""></p>
+<p><strong>Drag</strong> a label from the <strong>Object Library</strong> onto the empty <strong>View Controller</strong> scene canvas:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/drag_label-480x312.png" alt=""></p>
+<p>A label represents a static piece of text – with no user interaction – perfect for your Hello World app. You don’t want it to say “label” though – you’re going to update that next.</p>
+<p>To configure the label, select it and then open the <strong>Attributes Inspector </strong>(the 4th tab) on the right hand side of the Xcode window. Set the <strong>title</strong> to <strong>“Hello OS X!”</strong>, and update the <strong>font</strong> to be s<strong>ize 40:</strong></p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/label_config-296x320.png" alt=""></p>
+<p>You may see that the label is no longer sized correctly – next you’ll fix that and set it to the correct position.</p>
+<p>You position UI elements in OS X using a system called Auto Layout – which allows you to specify positions and sizes of UI elements in terms of their relationships. You want to put your “Hello OS X!” label in the center of the window – so you’re going to add constraints to achieve this.</p>
+<p>Select the label once again, and click the <strong>Align</strong> button in the bottom bar (the second from the left). Check both the <strong>Horizontally in Container</strong> and the <strong>Vertically in Container</strong> boxes, and ensure that they are both <strong>set to 0</strong>. Select <strong>Items of New Constraints</strong> in the <strong>Update Frames</strong> selection box before finally clicking the <strong>Add 2 Constraints button:</strong></p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/constraints-413x320.png" alt=""></p>
+<p>This will update the storyboard to position and size your label correctly.</p>
+<p>Build and run your app (either by clicking the play button, or using the <strong>⌘R</strong> keyboard shortcut) to see your “Hello World!” Mac OS X app:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/hello_osx-480x293.png" alt=""></p>
+<h1 id="Introducing-HubEvent"><a href="#Introducing-HubEvent" class="headerlink" title="Introducing HubEvent"></a>Introducing HubEvent</h1><p>You’ll continue learning how to make projects from scratch and code OS X apps in later parts of this series, but for the rest of this tutorial you’ll focus on learning more about Xcode itself.</p>
+<p>To help with that, I’ve created a sample project for you called <strong>HubEvent</strong> that you’ll work with for the rest of this tutorial. This way you can get a tour of Xcode with a real-world project.</p>
+<p><a href="https://koenig-media.raywenderlich.com/uploads/2015/11/HubEvent_7.1.zip" target="_blank" rel="external">Download</a> the <strong>HubEvent</strong> starter project, unzip it and <strong>double click</strong> on <strong>HubEvent\HubEvent.xcodeproj </strong>in Finder to open it in Xcode.</p>
+<p>Build and run <strong>HubEvent</strong> sample project and you’ll see it compile and then launch:</p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/hubevent-613x500.png" alt=""></p>
+<p>HubEvent uses the public GitHub API to pull down all the events for a user, and displays a summary of them in a table. As you select each row of the table, the raw JSON associated with that event is displayed in the panel below.</p>
+<h1 id="Xcode-Core-Functionality"><a href="#Xcode-Core-Functionality" class="headerlink" title="Xcode Core Functionality"></a>Xcode Core Functionality</h1><p>HubEvent is a fairly simple app, but is complex enough to demonstrate the core functionality of Xcode. The remainder of this tutorial will cover the following:</p>
+<ul>
+<li><strong>Code Editor.</strong> All OS X apps have a code component, and HubEvent is no different. The code in HubEvent is responsible for downloading the data from the GitHub API, and wiring it up to the user interface.</li>
+<li><strong>Interface Builder.</strong> You’ve already used Interface Builder when you build your “Hello World!” app. You’ll learn more about how this powerful tool allows you to build up the split-window UI used in HubEvent.</li>
+<li><strong>Asset Catalog. </strong>All image assets are stored inside asset catalogs – you’ll discover how to replace the standard app icon with something more interesting.</li>
+<li><strong>Debugging.</strong> Everybody makes mistakes when writing code and building apps and Xocde’s debugger makes identifying and fixing bugs a whole lot easier.</li>
+<li><strong>Documentation.</strong> OS X apps are build on top of some extremely advanced system frameworks, and nobody can remember exactly how to use each and every one of them. Luckily Apple creates high-quality documentation and has integrated it with Xcode to make it easy to find answers to your questions.<h2 id="Code-Editor"><a href="#Code-Editor" class="headerlink" title="Code Editor"></a>Code Editor</h2>Apps are built primarily from code, written in the Swift programming language. You can also use Objective-C to write apps for OS X, but Apple introduced Swift in 2014, and was very clear that it is the langauge of the future. <strong>HubEvent</strong> is written in Swift.</li>
+</ul>
+<p>One of the views available in Xcode is the <strong>Code Editor,</strong> which is activated whenever you open a source code file. To see it, select <strong>WindowController.swift</strong> from the <strong>Controllers</strong> group in the <strong>Project navigator.</strong></p>
+<p><img src="https://koenig-media.raywenderlich.com/uploads/2015/07/source_editor-700x368.png" alt=""></p>
+<blockquote>
+<p><strong>Note</strong>: You might need to show the Navigator pane on the left hand side using the buttons in the toolbar, and choose the Project navigator within the navigator pane. The buttons are shown in the above screenshot.</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift/" rel="tag"># Swift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/19/如何使用aria2下载/" rel="next" title="如何使用aria2下载">
+                <i class="fa fa-chevron-left"></i> 如何使用aria2下载
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/28/2017最潮的4句实话/" rel="prev" title="2017最潮的4句实话">
+                2017最潮的4句实话 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="PING" />
+          <p class="site-author-name" itemprop="name">PING</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/pingnz" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/askping" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/u/2022693731" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prerequisites"><span class="nav-number">1.</span> <span class="nav-text">Prerequisites</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Obtaining-Tools"><span class="nav-number">2.</span> <span class="nav-text">Obtaining Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Beta-versions-of-Xcode"><span class="nav-number">2.1.</span> <span class="nav-text">Beta versions of Xcode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Creating-a-new-app"><span class="nav-number">2.2.</span> <span class="nav-text">Creating a new app</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Running-your-app"><span class="nav-number">2.3.</span> <span class="nav-text">Running your app</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adding-Text"><span class="nav-number">2.4.</span> <span class="nav-text">Adding Text</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introducing-HubEvent"><span class="nav-number">3.</span> <span class="nav-text">Introducing HubEvent</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Xcode-Core-Functionality"><span class="nav-number">4.</span> <span class="nav-text">Xcode Core Functionality</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Editor"><span class="nav-number">4.1.</span> <span class="nav-text">Code Editor</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PING</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
