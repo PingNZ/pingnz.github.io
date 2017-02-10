@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[From Mac]]></title>
+      <url>%2F2017%2F02%2F10%2FFrom-Mac%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[2017最潮的4句实话]]></title>
       <url>%2F2017%2F01%2F28%2F2017%E6%9C%80%E6%BD%AE%E7%9A%844%E5%8F%A5%E5%AE%9E%E8%AF%9D%2F</url>
       <content type="text"><![CDATA[2017最潮的4句实话！（特精辟） 不要炫耀你的钱，在医院那就像纸 不要炫耀你的工作，你倒下了，无数人会比你做的更出色 不要炫耀你的房，你去了，那就是别人的窝 不要炫耀你的车，你离开了，车钥匙就握在别人手里了！ 你唯一可以炫耀的是: 你的健康!!]]></content>
@@ -66,8 +73,8 @@
 
     
     <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>%2F2017%2F01%2F16%2Fhello-world%2F</url>
+      <title><![CDATA[Hello World Test]]></title>
+      <url>%2F2017%2F01%2F16%2Fhello-world_1%2F</url>
       <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
     </entry>
 
