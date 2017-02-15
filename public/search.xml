@@ -3,6 +3,76 @@
   
     
     <entry>
+      <title><![CDATA[windows GD]]></title>
+      <url>%2F2017%2F02%2F11%2Fwindows-GD%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>%2F2017%2F02%2F11%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[This post comes from google]]></title>
+      <url>%2F2017%2F02%2F10%2FThis-post-comes-from-google%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Google]]></title>
+      <url>%2F2017%2F02%2F10%2FGoogle%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[From Google Drive]]></title>
+      <url>%2F2017%2F02%2F10%2FFrom-Google-Drive%2F</url>
+      <content type="text"><![CDATA[This is a test]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Test]]></title>
+      <url>%2F2017%2F02%2F10%2FTest%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[New Test]]></title>
+      <url>%2F2017%2F02%2F10%2FNew-Test%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Python_3]]></title>
+      <url>%2F2017%2F02%2F10%2FPython-3%2F</url>
+      <content type="text"><![CDATA[Python 3]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Python_2]]></title>
+      <url>%2F2017%2F02%2F10%2FPython-2%2F</url>
+      <content type="text"><![CDATA[Python 2]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Python_1]]></title>
+      <url>%2F2017%2F02%2F08%2FPython_1%2F</url>
+      <content type="text"><![CDATA[Python 1]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[2017最潮的4句实话]]></title>
       <url>%2F2017%2F01%2F28%2F2017%E6%9C%80%E6%BD%AE%E7%9A%844%E5%8F%A5%E5%AE%9E%E8%AF%9D%2F</url>
       <content type="text"><![CDATA[2017最潮的4句实话！（特精辟） 不要炫耀你的钱，在医院那就像纸 不要炫耀你的工作，你倒下了，无数人会比你做的更出色 不要炫耀你的房，你去了，那就是别人的窝 不要炫耀你的车，你离开了，车钥匙就握在别人手里了！ 你唯一可以炫耀的是: 你的健康!!]]></content>
@@ -24,9 +94,16 @@
 
     
     <entry>
+      <title><![CDATA[红烧狮子头]]></title>
+      <url>%2F2017%2F01%2F17%2F%E7%BA%A2%E7%83%A7%E7%8B%AE%E5%AD%90%E5%A4%B4%2F</url>
+      <content type="text"><![CDATA[##材料 食用油500克 （实耗60克） 酱油2大匙 料酒1大匙 胡椒粉1小匙 猪肉馅500克 油菜50克 胡萝卜25克 香葱1棵 生姜1小块 淀粉适量 ##做法 1.葱、姜洗净切末，油菜洗净，胡萝卜洗净切丝； 2.猪肉馅和葱、姜末、淀粉、胡椒粉、酱油充分拌匀，并摔打至有弹性，做成大小相同的肉丸； 3.烧热半锅油，将肉丸倒入油锅炸至金黄； 4.炒锅内留少许油，略炒油菜及胡萝卜丝，再将炸好的肉丸倒入，并加入酱油、清水、料酒同烧，中火焖煮10 多分钟至熟透，用水淀粉勾芡，淋明油盛盘即可。注意肥瘦适宜，肉香四溢。剁肉馅时要参照“三分肥，七分瘦”的原则。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[在不同电脑上进行Hexo写作与同步]]></title>
       <url>%2F2017%2F01%2F17%2F%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%94%B5%E8%84%91%E4%B8%8A%E8%BF%9B%E8%A1%8CHexo%E5%86%99%E4%BD%9C%E4%B8%8E%E5%90%8C%E6%AD%A5%2F</url>
-      <content type="text"><![CDATA[如果你有多台电脑，而且每台电脑你都有可能会写博客。那么这个时候就需要对Hexo进行版本控制了。版本控制的主要目的是方便在不同的电脑维护Hexo及写作。这里利用github的分支来保存hexo框架的相关文件(hexo配置、md、主题等文件)到github page仓库。这里假设已经在github上建好page仓库，也就是”yourname.github.io”名字的仓库，以及在自己电脑上已经搭建好git、hexo、nodejs环境 新建Hexo分支page仓库的master分支用来存放网站文件的，这是GitHub Page的要求，所以只好新建分支来保存Hexo原始文件，在下图的输入框输入分支名并按回车即完成分支创建。 设置默认分支因为我们写博客更多的是更新这个分支，网站文件所在的master分支则由hexo d命令发布文章的时候进行推送，所以我们将hexo分支&gt;设置为默认分支，这样我们在新的电脑环境下git clone该仓库时，自动切到hexo`分支。按下图进行操作。 站点配置hexo deploy参数1234deploy: type: git repo: https://github.com/pingnz/pingnz.github.io.git branch: master 然后使用部署命令hexo g -d就会自动渲染Markdown文件生成静态文件并部署到yourname.github.io仓库的master分支上，这时再访问http://yourname.github.io 就可以看到博客页面了。此时博客页面是部署保存了，但hexo配置、md、主题等文件还没有保存，在heox目录下使用以下命令将文件推送到hexo分支上 12345git remote add origin https://github.com/pingnz/pingnz.github.io.gitgit add .git commit -m "提交描述" #如果主题是英文，这里就是 git commit -m “change description”git push origin hexo_blog 下面来说说不同环境下的操作 已有环境如果在电脑上已经写过博客，那么可以在已有的工作目录下同步之前写的博客。在你的仓库目录下右键’git bash shell’，起来bash命令行，然后 1git pull 这样你的状态就更新了，之后就是 hexo命令写文章啦。。。写完hexo g -d部署好后，使用 1234git add .git commit -m "提交描述" #如果主题是英文，这里就是 git commit -m “change description”git push origin hexo_blog 推送上去. 新环境到了新的电脑上时，我们需要将项目先下载到本地，然后再进行hexo初始化。 12345git clone https://github.com/pingnz/pingnz.github.io.gitcd yourname.github.ionpm install hexonpm installnpm install hexo-deployer-git –save 之后开始写博客，写好部署好之后，别忘记 git add , ….git push origin hexo…推上去 1234git add .git commit -m "提交描述" #如果主题是英文，这里就是 git commit -m “change description”git push origin hexo_blog]]></content>
+      <content type="text"><![CDATA[如果你有多台电脑，而且每台电脑你都有可能会写博客。那么这个时候就需要对Hexo进行版本控制了。版本控制的主要目的是方便在不同的电脑维护Hexo及写作。这里利用github的分支来保存hexo框架的相关文件(hexo配置、md、主题等文件)到github page仓库。这里假设已经在github上建好page仓库，也就是”yourname.github.io”名字的仓库，以及在自己电脑上已经搭建好git、hexo、nodejs环境 新建Hexo_Blog分支page仓库的master分支用来存放网站文件的，这是GitHub Page的要求，所以只好新建分支来保存Hexo原始文件，在下图的输入框输入分支名并按回车即完成分支创建。 设置默认分支因为我们写博客更多的是更新这个分支，网站文件所在的master分支则由hexo d命令发布文章的时候进行推送，所以我们将hexo分支&gt;设置为默认分支，这样我们在新的电脑环境下git clone该仓库时，自动切到hexo`分支。按下图进行操作。 站点配置hexo deploy参数1234deploy: type: git repo: https://github.com/pingnz/pingnz.github.io.git branch: master 然后使用部署命令hexo g -d就会自动渲染Markdown文件生成静态文件并部署到yourname.github.io仓库的master分支上，这时再访问http://yourname.github.io 就可以看到博客页面了。此时博客页面是部署保存了，但hexo配置、md、主题等文件还没有保存，在heox目录下使用以下命令将文件推送到hexo分支上 12345git remote add origin https://github.com/pingnz/pingnz.github.io.gitgit add .git commit -m "提交描述" #如果主题是英文，这里就是 git commit -m “change description”git push origin hexo_blog 下面来说说不同环境下的操作 已有环境如果在电脑上已经写过博客，那么可以在已有的工作目录下同步之前写的博客。在你的仓库目录下右键’git bash shell’，起来bash命令行，然后 1git pull 这样你的状态就更新了，之后就是 hexo命令写文章啦。。。写完hexo g -d部署好后，使用 1234git add .git commit -m "提交描述" #如果主题是英文，这里就是 git commit -m “change description”git push origin hexo_blog 推送上去. 新环境到了新的电脑上时，我们需要将项目先下载到本地，然后再进行hexo初始化。 12345git clone https://github.com/pingnz/pingnz.github.io.gitcd yourname.github.ionpm install hexonpm installnpm install hexo-deployer-git –save 之后开始写博客，写好部署好之后，别忘记 git add , ….git push origin hexo…推上去 1234git add .git commit -m "提交描述" #如果主题是英文，这里就是 git commit -m “change description”git push origin hexo_blog]]></content>
     </entry>
 
     
