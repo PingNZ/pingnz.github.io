@@ -3,8 +3,15 @@
   
     
     <entry>
+      <title><![CDATA[从今天起开始跑步]]></title>
+      <url>%2F2017%2F02%2F18%2F%E4%BB%8E%E4%BB%8A%E5%A4%A9%E8%B5%B7%E5%BC%80%E5%A7%8B%E8%B7%91%E6%AD%A5%2F</url>
+      <content type="text"><![CDATA[计划跑锻炼已经有很长一段时间了，今天终于下定决心开始跑。首先去Rebel Sport买了一双迄今为止最贵的一双谢 - Asics Gel-Kayano 22, 当然再买这双鞋子以前已经做过大量的功课，一定买适合自己的跑鞋，在Rebel正好这双鞋子在打折，$159, 原价$270. 晚上试着跑了一下，第一次抛了1.3公里，然后又跑了一圈0.66公里，说实话这双鞋非常带劲，缓冲极好！希望能坚持下去，加油！]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Hexo 添加网易悦音乐歌曲和歌单]]></title>
-      <url>%2F2017%2F02%2F16%2FHexo-%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E6%82%A6%E9%9F%B3%E4%B9%90%E6%AD%8C%E6%9B%B2%E5%92%8C%E6%AD%8C%E5%8D%95%2F</url>
+      <url>%2F2017%2F02%2F16%2FHexo-%E6%B7%BB%E5%8A%A0%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%AD%8C%E6%9B%B2%E5%92%8C%E6%AD%8C%E5%8D%95%2F</url>
       <content type="text"><![CDATA[单首歌曲https已经不能插入网易云音乐，所以就只能借用 music.daoapp.io 来实现。 在网易云音乐的网页搜索歌曲然后拷贝歌曲ID，例如 天黑黑， id是287749，然后更改成如下， 如果不想让它自动播放，把autoplay设置成0 歌单在网易云音乐的网页搜索歌单然后拷贝歌单ID，然后改成如下，注意把song改成playlist]]></content>
     </entry>
 
